@@ -1,5 +1,5 @@
 Package: snaplocs
-Version: 0.0.0.9000
+Version: 0.1.0
 Title: SNAP Point Location Functions And Data
 Description: This package provides functions for working with point location data used in various applications and projects by the
     Scenarios Network for Alaska and Arctic Planning at the University of Alaska Fairbanks.
@@ -23,3 +23,8 @@ Suggests:
 Remotes:
     leonawicz/snapmeta
 VignetteBuilder: knitr
+Imports: 
+    dplyr,
+    purrr,
+    magrittr
+RoxygenNote: 6.0.1
