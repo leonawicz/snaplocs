@@ -11,13 +11,15 @@ get_region(location)
 
 get_country(location)
 
-get_coords(location)
+get_coords(location, keep_cols = FALSE)
 }
 \arguments{
-\item{location}{character, a name of a location in the \code{locs} data frame.}
+\item{location}{character, a name of a location in the \code{locs} data frame. May be a vector.}
+
+\item{keep_cols}{logical, keep all columns with \code{get_coords}. Defaults to \code{FALSE}, returning only the \code{lon} and \code{lat} columns.}
 }
 \value{
-a character string, or a dat frame for \code{get_coords}.
+a character string, or a data frame for \code{get_coords}.
 }
 \description{
 These functions return metadata associate with a point location.
