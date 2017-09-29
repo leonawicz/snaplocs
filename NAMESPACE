@@ -3,5 +3,4 @@
 export(get_coords)
 export(get_country)
 export(get_region)
-export(metadata)
 importFrom(magrittr,"%>%")
