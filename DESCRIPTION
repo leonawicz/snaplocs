@@ -29,5 +29,6 @@ Imports:
     purrr,
     magrittr,
     sp,
-    rgdal
+    rgdal,
+    tibble
 RoxygenNote: 6.0.1
