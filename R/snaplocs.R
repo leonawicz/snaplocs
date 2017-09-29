@@ -19,10 +19,10 @@ NULL
 #'
 #' @format A data frame with 3914 rows and 4 variables:
 #' \describe{
-#'   \item{price}{price, in US dollars}
-#'   \item{carat}{weight of the diamond, in carats}
-#'   \item{price}{price, in US dollars}
-#'   \item{carat}{weight of the diamond, in carats}
+#'   \item{loc}{point location name}
+#'   \item{region}{region name, a state, privince or territory}
+#'   \item{lon}{longitude}
+#'   \item{lat}{latitude}
 #' }
 #' @source For a visual demonstration of where these locations lie and their availability for use in a live application,
 #' see \url{https://uasnap.shinyapps.io/cc4liteFinal/}
