@@ -19,6 +19,8 @@ This is not one of those packages. Unlike `snappoly` and `snapgrid` it does not 
 
 While `snaplocs` is nevertheless still typically treated as a data package for basic access to the `locs` data set, the package does provide a collection of functions for working with the data. This vignette provides example usage of several functions.
 
+## Point location data
+
 Print a summary of the data. Use the `tibble` package for a concise better print statement.
 
 ```{r print}
@@ -26,6 +28,8 @@ library(snaplocs)
 library(tibble)
 locs
 ```
+
+## Metadata helpers
 
 There are some basic helper functions that grab metadata associated with point locations of interest.
 
@@ -45,6 +49,8 @@ get_country(x)
 get_coords(x)
 get_coords(x, keep_cols = TRUE)
 ```
+
+## Spatial reprojection
 
 Alaska- and western Canada-centric projects at SNAP often use data in a NAD83 Alaska Albers equal area conic projection.
 To quickly convert a 2-column matrix or data frame of WGS84 lon/lat coordinates to a 2-column matrix in this projection, do the following:
