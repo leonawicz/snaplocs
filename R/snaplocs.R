@@ -12,6 +12,22 @@ NULL
 #' @importFrom magrittr %>%
 NULL
 
+#' Point locations of interest in Alaska and western Canada associated with various SNAP projects and applications.
+#'
+#' This data set contains point locations and minimal associated metadata for approximately 4,000 communities
+#' and similar units in Alaska and western Canada. Locations include major and minor cities, towns, villages, and some other locations such as mines.
+#'
+#' @format A data frame with 3914 rows and 4 variables:
+#' \describe{
+#'   \item{price}{price, in US dollars}
+#'   \item{carat}{weight of the diamond, in carats}
+#'   \item{price}{price, in US dollars}
+#'   \item{carat}{weight of the diamond, in carats}
+#' }
+#' @source For a visual demonstration of where these locations lie and their availability for use in a live application,
+#' see \url{https://uasnap.shinyapps.io/cc4liteFinal/}
+"locs"
+
 #' Get point location metadata.
 #'
 #' These functions return metadata associate with a point location.
@@ -24,7 +40,6 @@ NULL
 #' @name metadata
 #'
 #' @return a character string, or a dat frame for \code{get_coords}.
-#' @export
 #'
 #' @examples
 #' x <- "Calgary"
