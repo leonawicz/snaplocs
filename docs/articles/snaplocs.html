@@ -175,6 +175,9 @@
 <div class="contents">
 <p><code>snaplocs</code> is as package in the functional sector of the SNAPverse. Like most packages, it contains some form of data. However, it is not a data sector package. Data packages are those that contain a large enough amount of data to warrant a standalone package so that functional packages remain small. This is not one of those packages. Unlike <code>snappoly</code> and <code>snapgrid</code> it does not contain any maps. <code>snaplocs</code> contains point location data in a single data frame. There are 3,914 locations in all, spread across Alaska and western Canada. Compared to SNAPverse data packages, this is quite small.</p>
 <p>While <code>snaplocs</code> is nevertheless still typically treated as a data package for basic access to the <code>locs</code> data set, the package does provide a collection of functions for working with the data. This vignette provides example usage of several functions.</p>
+<div id="point-location-data" class="section level2">
+<h2 class="hasAnchor">
+<a href="#point-location-data" class="anchor"></a>Point location data</h2>
 <p>Print a summary of the data. Use the <code>tibble</code> package for a concise better print statement.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(snaplocs)
 <span class="kw">library</span>(tibble)
@@ -193,6 +196,10 @@ locs
 <span class="co">#&gt;  9     Aleknagik Alaska -158.618 59.2730</span>
 <span class="co">#&gt; 10 Aleut Village Alaska -152.761 58.0171</span>
 <span class="co">#&gt; # ... with 3,904 more rows</span></code></pre></div>
+</div>
+<div id="metadata-helpers" class="section level2">
+<h2 class="hasAnchor">
+<a href="#metadata-helpers" class="anchor"></a>Metadata helpers</h2>
 <p>There are some basic helper functions that grab metadata associated with point locations of interest.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> "Fairbanks"</span>
 <span class="kw"><a href="../reference/metadata.html">get_region</a></span>(x)
@@ -222,6 +229,10 @@ locs
 <span class="co">#&gt;       &lt;chr&gt;  &lt;fctr&gt;    &lt;dbl&gt;   &lt;dbl&gt;</span>
 <span class="co">#&gt; 1 Fairbanks  Alaska -147.716 64.8378</span>
 <span class="co">#&gt; 2   Calgary Alberta -114.057 51.0458</span></code></pre></div>
+</div>
+<div id="spatial-reprojection" class="section level2">
+<h2 class="hasAnchor">
+<a href="#spatial-reprojection" class="anchor"></a>Spatial reprojection</h2>
 <p>Alaska- and western Canada-centric projects at SNAP often use data in a NAD83 Alaska Albers equal area conic projection. To quickly convert a 2-column matrix or data frame of WGS84 lon/lat coordinates to a 2-column matrix in this projection, do the following:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/wgs2ak.html">wgs2ak</a></span>(<span class="kw"><a href="../reference/metadata.html">get_coords</a></span>(x))
 <span class="co">#&gt;              x         y</span>
@@ -237,9 +248,19 @@ locs
 <span class="co">#&gt; [6,]  -766686.42  526437.1</span></code></pre></div>
 <p>More functions will be added in the next package revision.</p>
 </div>
+</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+        <div id="tocnav">
+      <h2 class="hasAnchor">
+<a href="#tocnav" class="anchor"></a>Contents</h2>
+      <ul class="nav nav-pills nav-stacked">
+<li><a href="#point-location-data">Point location data</a></li>
+      <li><a href="#metadata-helpers">Metadata helpers</a></li>
+      <li><a href="#spatial-reprojection">Spatial reprojection</a></li>
+      </ul>
+</div>
       </div>
 
 </div>
