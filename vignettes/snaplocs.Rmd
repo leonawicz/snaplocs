@@ -19,12 +19,17 @@ This is not one of those packages. Unlike `snappoly` and `snapgrid` it does not 
 
 While `snaplocs` is nevertheless still typically treated as a data package for basic access to the `locs` data set, the package does provide a collection of functions for working with the data. This vignette provides example usage of several functions.
 
-First there are some basic helper functions that grab metadata associated with point locations of interest.
+Print a summary of the data. Use the `tibble` package for a concise better print statement.
 
 ```{r helpers}
 library(snaplocs)
+library(tibble)
 locs
+```
 
+There are some basic helper functions that grab metadata associated with point locations of interest.
+
+```{r helpers}
 x <- "Fairbanks"
 get_region(x)
 get_country(x)
