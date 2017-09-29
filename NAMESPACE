@@ -3,4 +3,5 @@
 export(get_coords)
 export(get_country)
 export(get_region)
+export(wgs2ak)
 importFrom(magrittr,"%>%")
