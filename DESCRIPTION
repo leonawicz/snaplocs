@@ -20,4 +20,6 @@ Suggests:
     rmarkdown,
     covr,
     snapmeta
+Remotes:
+    leonawicz/snapmeta
 VignetteBuilder: knitr
