@@ -21,7 +21,7 @@ While `snaplocs` is nevertheless still typically treated as a data package for b
 
 Print a summary of the data. Use the `tibble` package for a concise better print statement.
 
-```{r helpers}
+```{r print}
 library(snaplocs)
 library(tibble)
 locs
