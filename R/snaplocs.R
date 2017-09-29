@@ -52,7 +52,7 @@ NULL
 #' @rdname metadata
 get_region <- function(location){
   idx <- which(locs$loc == location)
-  .no_loc(idx)
+  .no_loc(location, idx)
   as.character(locs$region[idx])
 }
 
@@ -60,18 +60,18 @@ get_region <- function(location){
 #' @rdname metadata
 get_country <- function(location){
   get_region(location) %>%
-    purrr::map_chr(x, ~ifelse(.x == "Alaska", "United States", "Canada"))
+    purrr::map_chr(~ifelse(.x == "Alaska", "United States", "Canada"))
 }
 
 #' @export
 #' @rdname metadata
 get_coords <- function(location){
   idx <- which(locs$loc == location)
-  .no_loc(idx)
+  .no_loc(location, idx)
   dplyr::filter(locs, .data[["loc"]] == location) %>%
     dplyr::select(.data[["lon"]], .data[["lat"]])
 }
 
-.no_loc <- function(idx){
-  if(!length(idx)) stop(paste("'", location, "' is not an available location in `locs`."))
+.no_loc <- function(location, idx){
+  if(!length(idx)) stop(paste0("'", location, "' is not an available location in `locs`."))
 }
