@@ -2,6 +2,8 @@
 
 * Added function for conversion to NAD83 Alaska Albers equal area conic projection.
 * Added unit tests and documentation.
+* Vectorized helper functions.
+* Added initial introduction vignette.
 
 # snaplocs 0.1.0
 
