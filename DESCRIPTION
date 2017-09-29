@@ -1,5 +1,5 @@
 Package: snaplocs
-Version: 0.1.0
+Version: 0.2.0
 Title: SNAP Point Location Functions And Data
 Description: This package provides functions for working with point location data used in various applications and projects by the
     Scenarios Network for Alaska and Arctic Planning at the University of Alaska Fairbanks.
@@ -8,6 +8,7 @@ Description: This package provides functions for working with point location dat
 Authors@R: c(person("Matthew", "Leonawicz", email = "mfleonawicz@alaska.edu", role = c("aut", "cre")),
     person("Scenarios Network for Alaska and Arctic Planning", role = c("cph", "fnd"))
     )
+Depends: R (>= 3.4.1)
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
@@ -26,5 +27,6 @@ VignetteBuilder: knitr
 Imports: 
     dplyr,
     purrr,
-    magrittr
+    magrittr,
+    sp
 RoxygenNote: 6.0.1
