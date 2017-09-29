@@ -6,10 +6,11 @@
 #' \code{get_country} returns the name of the country (US or Canada).
 #' \code{get_coords} returns the longitutde and latitude of a point location as a data frame.
 #'
-#' @param location character, a name of a location in the \code{locs} data frame.
+#' @param location character, a name of a location in the \code{locs} data frame. May be a vector.
+#' @param keep_cols logical, keep all columns with \code{get_coords}. Defaults to \code{FALSE}, returning only the \code{lon} and \code{lat} columns.
 #' @name metadata
 #'
-#' @return a character string, or a dat frame for \code{get_coords}.
+#' @return a character string, or a data frame for \code{get_coords}.
 #'
 #' @examples
 #' x <- "Calgary"
@@ -21,7 +22,7 @@ NULL
 #' @export
 #' @rdname metadata
 get_region <- function(location){
-  idx <- which(snaplocs::locs$loc == location)
+  idx <- which(snaplocs::locs$loc %in% location)
   .no_loc(location, idx)
   as.character(snaplocs::locs$region[idx])
 }
@@ -35,13 +36,15 @@ get_country <- function(location){
 
 #' @export
 #' @rdname metadata
-get_coords <- function(location){
-  idx <- which(snaplocs::locs$loc == location)
+get_coords <- function(location, keep_cols = FALSE){
+  idx <- which(snaplocs::locs$loc %in% location)
   .no_loc(location, idx)
-  dplyr::filter(snaplocs::locs, .data[["loc"]] == location) %>%
-    dplyr::select(.data[["lon"]], .data[["lat"]])
+  x <- dplyr::filter(snaplocs::locs, .data[["loc"]] %in% location)
+  if(keep_cols) x else dplyr::select(x, .data[["lon"]], .data[["lat"]])
 }
 
 .no_loc <- function(location, idx){
-  if(!length(idx)) stop(paste0("'", location, "' is not an available location in `locs`."))
+  noloc <- length(location) > length(idx)
+  location <- if(length(idx)) "At least one location" else paste0("'", location, "'")
+  if(noloc) stop(paste0(location, " is not an available location in `locs`."))
 }
