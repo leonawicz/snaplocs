@@ -1,10 +1,52 @@
 ---
-title: "Vignette Title"
-author: "Vignette Author"
-date: "`r Sys.Date()`"
+title: "Introduction to snaplocs"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteIndexEntry{Introduction to snaplocs}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE, comment = "#>", fig.path = "man/figures/README-",
+  message = FALSE, warning = FALSE, error = FALSE, tidy = TRUE
+)
+```
+
+`snaplocs` is as package in the functional sector of the SNAPverse. Like most packages, it contains some form of data. However, it is not a data sector package. Data packages are those that contain a large enough amount of data to warrant a standalone package so that functional packages remain small.
+This is not one of those packages. Unlike `snappoly` and `snapgrid` it does not contain any maps. `snaplocs` contains point location data in a single data frame. There are 3,914 locations in all, spread across Alaska and western Canada. Compared to SNAPverse data packages, this is quite small.
+
+While `snaplocs` is nevertheless still typically treated as a data package for basic access to the `locs` data set, the package does provide a collection of functions for working with the data. This vignette provides example usage of several functions.
+
+First there are some basic helper functions that grab metadata associated with point locations of interest.
+
+```{r helpers}
+library(snaplocs)
+locs
+
+x <- "Fairbanks"
+get_region(x)
+get_country(x)
+get_coords(x)
+```
+
+These calls also take vectors and `get_coords` with `keep_cols = TRUE` retains all columns of `locs`.
+
+```{r helpers2}
+x <- c("Fairbanks", "Calgary")
+get_region(x)
+get_country(x)
+get_coords(x)
+get_coords(x, keep_cols = TRUE)
+```
+
+Alaska- and western Canada-centric projects at SNAP often use data in a NAD83 Alaska Albers equal area conic projection.
+To quickly convert a 2-column matrix or data frame of WGS84 lon/lat coordinates to a 2-column matrix in this projection, do the following:
+
+```{r albers}
+wgs2ak(get_coords(x))
+head(wgs2ak(locs[3:4]))
+```
+
+More functions will be added in the next package revision.
