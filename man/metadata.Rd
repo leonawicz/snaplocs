@@ -7,14 +7,16 @@
 \alias{get_coords}
 \title{Get point location metadata.}
 \usage{
-get_region(location)
+get_region(location, region)
 
-get_country(location)
+get_country(location, region)
 
-get_coords(location, keep_cols = FALSE)
+get_coords(location, region, keep_cols = FALSE)
 }
 \arguments{
 \item{location}{character, a name of a location in the \code{locs} data frame. May be a vector.}
+
+\item{region}{character, if supplied, the \code{locs} data set is first filtered to \code{region}. May be a vector.}
 
 \item{keep_cols}{logical, keep all columns with \code{get_coords}. Defaults to \code{FALSE}, returning only the \code{lon} and \code{lat} columns.}
 }
