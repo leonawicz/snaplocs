@@ -1,3 +1,9 @@
+# snaplocs 0.2.1 (Release date: 2017-10-05)
+
+* Added `region` argument to metadata helper functions to subset `locs` data frame and limit possible duplicate results when a point location name is unique within a region but not between regions.
+* Update introduction vignette.
+* Added unit tests.
+
 # snaplocs 0.2.0
 
 * Added function for conversion to NAD83 Alaska Albers equal area conic projection.
