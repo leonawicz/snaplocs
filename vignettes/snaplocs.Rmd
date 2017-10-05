@@ -50,6 +50,31 @@ get_coords(x)
 get_coords(x, keep_cols = TRUE)
 ```
 
+Typically a user is interested in all communities, or all those in a particular province.
+Less commonly, a user may have a specific location name and query the table as demonstrated above.
+Not only must the name be exact, but the results returned may not be unique.
+These helper functions that take specific locations as input are only intended to provide rough convenience.
+For example, Galena is not unique.
+
+```{r helpers3}
+x <- c("Galena")
+get_region(x)
+get_country(x)
+get_coords(x)
+get_coords(x, keep_cols = TRUE)
+```
+
+An additional `region` argument can be passed to any of these functions to protect against this possibility.
+`region` may be a vector.
+
+```{r helpers4}
+r <- "Alaska"
+get_region(x, region = r)
+get_country(x, r)
+get_coords(x, r)
+get_coords(x, r, keep_cols = TRUE)
+```
+
 ## Spatial reprojection
 
 Alaska- and western Canada-centric projects at SNAP often use data in a NAD83 Alaska Albers equal area conic projection.
