@@ -229,6 +229,40 @@ locs
 <span class="co">#&gt;       &lt;chr&gt;  &lt;fctr&gt;    &lt;dbl&gt;   &lt;dbl&gt;</span>
 <span class="co">#&gt; 1 Fairbanks  Alaska -147.716 64.8378</span>
 <span class="co">#&gt; 2   Calgary Alberta -114.057 51.0458</span></code></pre></div>
+<p>Typically a user is interested in all communities, or all those in a particular province. Less commonly, a user may have a specific location name and query the table as demonstrated above. Not only must the name be exact, but the results returned may not be unique. These helper functions that take specific locations as input are only intended to provide rough convenience. For example, Galena is not unique.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"Galena"</span>)
+<span class="kw"><a href="../reference/metadata.html">get_region</a></span>(x)
+<span class="co">#&gt; [1] "Alaska"           "British Columbia"</span>
+<span class="kw"><a href="../reference/metadata.html">get_country</a></span>(x)
+<span class="co">#&gt; [1] "United States" "Canada"</span>
+<span class="kw"><a href="../reference/metadata.html">get_coords</a></span>(x)
+<span class="co">#&gt; # A tibble: 2 x 2</span>
+<span class="co">#&gt;        lon     lat</span>
+<span class="co">#&gt;      &lt;dbl&gt;   &lt;dbl&gt;</span>
+<span class="co">#&gt; 1 -156.927 64.7333</span>
+<span class="co">#&gt; 2 -117.867 50.6167</span>
+<span class="kw"><a href="../reference/metadata.html">get_coords</a></span>(x, <span class="dt">keep_cols =</span> <span class="ot">TRUE</span>)
+<span class="co">#&gt; # A tibble: 2 x 4</span>
+<span class="co">#&gt;      loc           region      lon     lat</span>
+<span class="co">#&gt;    &lt;chr&gt;           &lt;fctr&gt;    &lt;dbl&gt;   &lt;dbl&gt;</span>
+<span class="co">#&gt; 1 Galena           Alaska -156.927 64.7333</span>
+<span class="co">#&gt; 2 Galena British Columbia -117.867 50.6167</span></code></pre></div>
+<p>An additional <code>region</code> argument can be passed to any of these functions to protect against this possibility. <code>region</code> may be a vector.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">r &lt;-<span class="st"> "Alaska"</span>
+<span class="kw"><a href="../reference/metadata.html">get_region</a></span>(x, <span class="dt">region =</span> r)
+<span class="co">#&gt; [1] "Alaska"</span>
+<span class="kw"><a href="../reference/metadata.html">get_country</a></span>(x, r)
+<span class="co">#&gt; [1] "United States"</span>
+<span class="kw"><a href="../reference/metadata.html">get_coords</a></span>(x, r)
+<span class="co">#&gt; # A tibble: 1 x 2</span>
+<span class="co">#&gt;        lon     lat</span>
+<span class="co">#&gt;      &lt;dbl&gt;   &lt;dbl&gt;</span>
+<span class="co">#&gt; 1 -156.927 64.7333</span>
+<span class="kw"><a href="../reference/metadata.html">get_coords</a></span>(x, r, <span class="dt">keep_cols =</span> <span class="ot">TRUE</span>)
+<span class="co">#&gt; # A tibble: 1 x 4</span>
+<span class="co">#&gt;      loc region      lon     lat</span>
+<span class="co">#&gt;    &lt;chr&gt; &lt;fctr&gt;    &lt;dbl&gt;   &lt;dbl&gt;</span>
+<span class="co">#&gt; 1 Galena Alaska -156.927 64.7333</span></code></pre></div>
 </div>
 <div id="spatial-reprojection" class="section level2">
 <h2 class="hasAnchor">
@@ -236,8 +270,8 @@ locs
 <p>Alaska- and western Canada-centric projects at SNAP often use data in a NAD83 Alaska Albers equal area conic projection. To quickly convert a 2-column matrix or data frame of WGS84 lon/lat coordinates to a 2-column matrix in this projection, do the following:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/wgs2ak.html">wgs2ak</a></span>(<span class="kw"><a href="../reference/metadata.html">get_coords</a></span>(x))
 <span class="co">#&gt;              x         y</span>
-<span class="co">#&gt; [1,]  297717.7 1667064.0</span>
-<span class="co">#&gt; [2,] 2652995.3  938208.1</span>
+<span class="co">#&gt; [1,] -139348.5 1644384.4</span>
+<span class="co">#&gt; [2,] 2451503.6  751897.5</span>
 <span class="kw">head</span>(<span class="kw"><a href="../reference/wgs2ak.html">wgs2ak</a></span>(locs[<span class="dv">3</span>:<span class="dv">4</span>]))
 <span class="co">#&gt;                x         y</span>
 <span class="co">#&gt; [1,] -1537921.57  472626.5</span>

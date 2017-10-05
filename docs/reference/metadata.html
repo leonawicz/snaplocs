@@ -198,11 +198,11 @@
     <p>These functions return metadata associate with a point location.</p>
     
 
-    <pre class="usage"><span class='fu'>get_region</span>(<span class='no'>location</span>)
+    <pre class="usage"><span class='fu'>get_region</span>(<span class='no'>location</span>, <span class='no'>region</span>)
 
-<span class='fu'>get_country</span>(<span class='no'>location</span>)
+<span class='fu'>get_country</span>(<span class='no'>location</span>, <span class='no'>region</span>)
 
-<span class='fu'>get_coords</span>(<span class='no'>location</span>, <span class='kw'>keep_cols</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+<span class='fu'>get_coords</span>(<span class='no'>location</span>, <span class='no'>region</span>, <span class='kw'>keep_cols</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
@@ -210,6 +210,10 @@
     <tr>
       <th>location</th>
       <td><p>character, a name of a location in the <code>locs</code> data frame. May be a vector.</p></td>
+    </tr>
+    <tr>
+      <th>region</th>
+      <td><p>character, if supplied, the <code>locs</code> data set is first filtered to <code>region</code>. May be a vector.</p></td>
     </tr>
     <tr>
       <th>keep_cols</th>
