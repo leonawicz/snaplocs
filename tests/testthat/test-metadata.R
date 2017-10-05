@@ -29,3 +29,29 @@ test_that("metadata helpers return as expected", {
   expect_error(get_country(x), err)
   expect_error(get_coords(x), err)
 })
+
+test_that("metadata region argument works", {
+  x <- rep(c("Fairbanks", "Galena"), 2)
+  reg <- rep(c("Alaska", "British Columbia"), each = 2)
+  country <- rep(c("United States", "Canada"), each = 2)
+  good <- c(1:2, 4)
+  bad <- 3
+  purrr::walk2(x[good], reg[good], ~expect_identical(get_region(.x, .y), .y))
+  purrr::walk(good, ~expect_identical(get_country(x[.x], reg[.x]), country[.x]))
+  purrr::walk(x[good], ~expect_is(get_coords(.x, .y), "tbl_df"))
+  purrr::walk2(x[good], reg[good], ~expect_identical(dim(get_coords(.x, .y)), c(1L, 2L)))
+
+  x <- "Fairbanks"
+  reg <- "British Columbia"
+  err <- paste0("'", x, "' is not an available location in `locs`.")
+  expect_error(get_region(x, reg), err)
+  expect_error(get_country(x, reg), err)
+  expect_error(get_coords(x, reg), err)
+
+  x <- c("Fairbanks")
+  reg <- "A"
+  err <- "Invalid `region`."
+  expect_error(get_region(x, reg), err)
+  expect_error(get_country(x, reg), err)
+  expect_error(get_coords(x, reg), err)
+})
