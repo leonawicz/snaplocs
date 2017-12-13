@@ -20,9 +20,6 @@ Suggests:
     knitr,
     rmarkdown,
     covr,
-    snapmeta
-Remotes:
-    leonawicz/snapmeta
 VignetteBuilder: knitr
 Imports: 
     dplyr,
