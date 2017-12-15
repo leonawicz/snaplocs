@@ -21,11 +21,14 @@ While `snaplocs` is nevertheless still typically treated as a data package for b
 
 ## Point location data
 
-Print a summary of the data. Use the `tibble` package for a concise better print statement.
+Print a summary of the data.
+
+```{r tibble, echo=FALSE}
+library(tibble)
+```
 
 ```{r print}
 library(snaplocs)
-library(tibble)
 locs
 ```
 
@@ -35,7 +38,7 @@ There are some basic helper functions that grab metadata associated with point l
 
 ```{r helpers}
 x <- "Fairbanks"
-get_region(x)
+get_state(x)
 get_country(x)
 get_coords(x)
 ```
@@ -44,7 +47,7 @@ These calls also take vectors and `get_coords` with `keep_cols = TRUE` retains a
 
 ```{r helpers2}
 x <- c("Fairbanks", "Calgary")
-get_region(x)
+get_state(x)
 get_country(x)
 get_coords(x)
 get_coords(x, keep_cols = TRUE)
@@ -58,21 +61,21 @@ For example, Galena is not unique.
 
 ```{r helpers3}
 x <- c("Galena")
-get_region(x)
+get_state(x)
 get_country(x)
 get_coords(x)
 get_coords(x, keep_cols = TRUE)
 ```
 
-An additional `region` argument can be passed to any of these functions to protect against this possibility.
-`region` may be a vector.
+An additional `group` argument can be passed to any of these functions to protect against this possibility.
+`group` may be a vector.
 
 ```{r helpers4}
-r <- "Alaska"
-get_region(x, region = r)
-get_country(x, r)
-get_coords(x, r)
-get_coords(x, r, keep_cols = TRUE)
+grp <- "Alaska"
+get_state(x, group = grp)
+get_country(x, grp)
+get_coords(x, grp)
+get_coords(x, grp, keep_cols = TRUE)
 ```
 
 ## Spatial reprojection
