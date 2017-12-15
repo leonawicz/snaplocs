@@ -2,21 +2,25 @@
 % Please edit documentation in R/metadata.R
 \name{metadata}
 \alias{metadata}
-\alias{get_region}
+\alias{get_state}
+\alias{get_province}
 \alias{get_country}
 \alias{get_coords}
 \title{Get point location metadata.}
 \usage{
-get_region(location, region)
+get_state(location, group)
 
-get_country(location, region)
+get_province(location, group)
 
-get_coords(location, region, keep_cols = FALSE)
+get_country(location, group)
+
+get_coords(location, group, keep_cols = FALSE)
 }
 \arguments{
 \item{location}{character, a name of a location in the \code{locs} data frame. May be a vector.}
 
-\item{region}{character, if supplied, the \code{locs} data set is first filtered to \code{region}. May be a vector.}
+\item{group}{character, the region group/set the location belongs to.
+If supplied, the \code{locs} data set is first filtered to \code{group}. May be a vector.}
 
 \item{keep_cols}{logical, keep all columns with \code{get_coords}. Defaults to \code{FALSE}, returning only the \code{lon} and \code{lat} columns.}
 }
@@ -27,13 +31,13 @@ a character string, or a data frame for \code{get_coords}.
 These functions return metadata associate with a point location.
 }
 \details{
-\code{get_region} returns the state, province or territory of a point location.
+\code{get_state} returns the state, province or territory of a point location.
 \code{get_country} returns the name of the country (US or Canada).
 \code{get_coords} returns the longitutde and latitude of a point location as a data frame.
 }
 \examples{
 x <- "Calgary"
-get_region(x)
+get_state(x)
 get_country(x)
 get_coords(x)
 }

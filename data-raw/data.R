@@ -6,11 +6,11 @@ loc <- purrr::map_chr(cities.meta$Location, ~{
   len <- length(x)
   paste0(x[1:(len - 1)], collapse = ", ")
 })
-reg <- purrr::map_chr(cities.meta$Location, ~strsplit(.x, ", ")[[1]] %>% tail(1))
+grp <- purrr::map_chr(cities.meta$Location, ~strsplit(.x, ", ")[[1]] %>% tail(1))
 lev <- c("Alaska", "Alberta", "British Columbia", "Manitoba", "Northwest Territories", "Saskatchewan", "Yukon")
 locs <- as_data_frame(cities.meta) %>%
-  mutate(loc = loc, region = factor(reg, levels = lev)) %>%
-  rename(lon = Lon, lat = Lat) %>% select(loc, region, lon, lat) %>%
-  arrange(region, loc)
+  mutate(Location = loc, Group = factor(grp, levels = lev)) %>%
+  rename(lon = Lon, lat = Lat) %>% select(Location, Group, lon, lat) %>%
+  arrange(Group, Location)
 
 usethis::use_data(locs)

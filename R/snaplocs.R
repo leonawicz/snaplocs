@@ -16,13 +16,13 @@ NULL
 
 #' Point locations of interest in Alaska and western Canada associated with various SNAP projects and applications.
 #'
-#' This data set contains point locations and minimal associated metadata for approximately 4,000 communities
+#' This data set contains point locations and minimal associated metadata for 3,914 communities
 #' and similar units in Alaska and western Canada. Locations include major and minor cities, towns, villages, and some other locations such as mines.
 #'
 #' @format A data frame with 3914 rows and 4 variables:
 #' \describe{
-#'   \item{loc}{point location name}
-#'   \item{region}{region name, a state, privince or territory}
+#'   \item{Location}{point location name}
+#'   \item{Group}{region group/set name, a state, privince or territory}
 #'   \item{lon}{longitude}
 #'   \item{lat}{latitude}
 #' }

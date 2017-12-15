@@ -2,6 +2,7 @@
 
 export(get_coords)
 export(get_country)
-export(get_region)
+export(get_province)
+export(get_state)
 export(wgs2ak)
 importFrom(magrittr,"%>%")
