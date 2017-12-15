@@ -1,5 +1,5 @@
 Package: snaplocs
-Version: 0.2.1
+Version: 0.2.2
 Title: SNAP Point Location Functions And Data
 Description: This package provides functions for working with point location data used in various applications and projects by the
     Scenarios Network for Alaska and Arctic Planning at the University of Alaska Fairbanks.

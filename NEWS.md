@@ -1,3 +1,9 @@
+# snaplocs 0.2.2 (Release date: 2017-12-15)
+
+* Breaking changes: Changed `region` argument in metadata helper functions to `group`. Change `loc` and `region` columns names in `locs` data frame to `Location` and `Group`. These changes bring more consistency with packages like `snapclim` and `snapfire`.
+* Migrate `regions` data frame to `snaplocs` from `snapclim`. `regions` data frame will support multiple downsteam packages.
+* Update introduction vignette, help documentation and unit tests.
+
 # snaplocs 0.2.1 (Release date: 2017-10-05)
 
 * Added `region` argument to metadata helper functions to subset `locs` data frame and limit possible duplicate results when a point location name is unique within a region but not between regions.
