@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • snaplocs</title>
+<title>Common SNAP regions � regions • snaplocs</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -49,7 +49,7 @@
   </head>
 
   <body>
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
@@ -189,82 +189,37 @@
       </header>
 
       <div class="row">
-  <div class="col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>
-        Reference
-        <small>version&nbsp;0.2.2</small>
-      </h1>
+    <h1>Common SNAP regions</h1>
     </div>
 
-    <div class="contents">
-      <table class="ref-index">
+    
+    <p>Commonly used political and ecological polygon regions at SNAP.</p>
+    
 
-      <colgroup>
-        <col class="alias" />
-        <col class="title" />
-      </colgroup>
+    <pre class="usage"><span class='no'>regions</span></pre>
+        
+    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-      <tbody>
-        <tr>
-          <th colspan="2">
-            <h2 id="section-package" class="hasAnchor"><a href="#section-package" class="anchor"></a>Package</h2>
-            <p class="section-desc"></p>
-          </th>
-        </tr>
-        <tr>
-          <!--  -->
-          <td>
-            <p><code><a href="snaplocs.html">snaplocs</a></code> </p>
-          </td>
-          <td><p>snaplocs: Functions for working with SNAP point location data.</p></td>
-        </tr>
-      </tbody><tbody>
-        <tr>
-          <th colspan="2">
-            <h2 id="section-metadata" class="hasAnchor"><a href="#section-metadata" class="anchor"></a>Metadata</h2>
-            <p class="section-desc"></p>
-          </th>
-        </tr>
-        <tr>
-          <!--  -->
-          <td>
-            <p><code><a href="metadata.html">get_state</a></code> <code><a href="metadata.html">get_province</a></code> <code><a href="metadata.html">get_country</a></code> <code><a href="metadata.html">get_coords</a></code> </p>
-          </td>
-          <td><p>Get point location metadata.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="regions.html">regions</a></code> </p>
-          </td>
-          <td><p>Common SNAP regions</p></td>
-        </tr>
-      </tbody><tbody>
-        <tr>
-          <th colspan="2">
-            <h2 id="section-projections" class="hasAnchor"><a href="#section-projections" class="anchor"></a>Projections</h2>
-            <p class="section-desc"></p>
-          </th>
-        </tr>
-        <tr>
-          <!--  -->
-          <td>
-            <p><code><a href="wgs2ak.html">wgs2ak</a></code> </p>
-          </td>
-          <td><p>Convert from WGS84 to Alaska Albers projection</p></td>
-        </tr>
-      </tbody>
-      </table>
-    </div>
+    <p>A data frame with 86 rows and 2 columns giving the region name and the set/group it belongs to.</p>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>A data frame of available political and ecological regions and their respective region groups/sets
+commonly used with SNAP data spatial distributions and regional summary statistics.</p>
+    
+
   </div>
-
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-package">Package</a></li>
-      <li><a href="#section-metadata">Metadata</a></li>
-      <li><a href="#section-projections">Projections</a></li>
-    </ul>
+      
+      <li><a href="#format">Format</a></li>
+
+      <li><a href="#details">Details</a></li>
+          </ul>
+
   </div>
 </div>
 

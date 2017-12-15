@@ -198,11 +198,13 @@
     <p>These functions return metadata associate with a point location.</p>
     
 
-    <pre class="usage"><span class='fu'>get_region</span>(<span class='no'>location</span>, <span class='no'>region</span>)
+    <pre class="usage"><span class='fu'>get_state</span>(<span class='no'>location</span>, <span class='no'>group</span>)
 
-<span class='fu'>get_country</span>(<span class='no'>location</span>, <span class='no'>region</span>)
+<span class='fu'>get_province</span>(<span class='no'>location</span>, <span class='no'>group</span>)
 
-<span class='fu'>get_coords</span>(<span class='no'>location</span>, <span class='no'>region</span>, <span class='kw'>keep_cols</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+<span class='fu'>get_country</span>(<span class='no'>location</span>, <span class='no'>group</span>)
+
+<span class='fu'>get_coords</span>(<span class='no'>location</span>, <span class='no'>group</span>, <span class='kw'>keep_cols</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
@@ -212,8 +214,9 @@
       <td><p>character, a name of a location in the <code>locs</code> data frame. May be a vector.</p></td>
     </tr>
     <tr>
-      <th>region</th>
-      <td><p>character, if supplied, the <code>locs</code> data set is first filtered to <code>region</code>. May be a vector.</p></td>
+      <th>group</th>
+      <td><p>character, the region group/set the location belongs to.
+If supplied, the <code>locs</code> data set is first filtered to <code>group</code>. May be a vector.</p></td>
     </tr>
     <tr>
       <th>keep_cols</th>
@@ -227,14 +230,14 @@
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p><code>get_region</code> returns the state, province or territory of a point location.
+    <p><code>get_state</code> returns the state, province or territory of a point location.
 <code>get_country</code> returns the name of the country (US or Canada).
 <code>get_coords</code> returns the longitutde and latitude of a point location as a data frame.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='st'>"Calgary"</span>
-<span class='fu'>get_region</span>(<span class='no'>x</span>)</div><div class='output co'>#&gt; [1] "Alberta"</div><div class='input'><span class='fu'>get_country</span>(<span class='no'>x</span>)</div><div class='output co'>#&gt; [1] "Canada"</div><div class='input'><span class='fu'>get_coords</span>(<span class='no'>x</span>)</div><div class='output co'>#&gt; # A tibble: 1 x 2
+<span class='fu'>get_state</span>(<span class='no'>x</span>)</div><div class='output co'>#&gt; [1] "Alberta"</div><div class='input'><span class='fu'>get_country</span>(<span class='no'>x</span>)</div><div class='output co'>#&gt; [1] "Canada"</div><div class='input'><span class='fu'>get_coords</span>(<span class='no'>x</span>)</div><div class='output co'>#&gt; # A tibble: 1 x 2
 #&gt;        lon     lat
 #&gt;      &lt;dbl&gt;   &lt;dbl&gt;
 #&gt; 1 -114.057 51.0458</div></pre>
