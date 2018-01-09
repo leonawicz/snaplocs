@@ -84,7 +84,7 @@
     <li class="divider">
     <li class="dropdown-header">Functions packages</li>
     <li>
-      <a href="https://leonawicz.github.io/snapfuns">snapfuns</a>
+      <a href="https://leonawicz.github.io/snapstat">snapstat</a>
     </li>
     <li>
       <a href="https://leonawicz.github.io/snaplocs">snaplocs</a>
@@ -182,18 +182,18 @@
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(snaplocs)
 locs
 <span class="co">#&gt; # A tibble: 3,914 x 4</span>
-<span class="co">#&gt;         Location  Group      lon     lat</span>
-<span class="co">#&gt;            &lt;chr&gt; &lt;fctr&gt;    &lt;dbl&gt;   &lt;dbl&gt;</span>
-<span class="co">#&gt;  1  Adak Station Alaska -176.658 51.8800</span>
-<span class="co">#&gt;  2       Afognak Alaska -152.768 58.0078</span>
-<span class="co">#&gt;  3        Akhiok Alaska -154.170 56.9455</span>
-<span class="co">#&gt;  4      Akiachak Alaska -161.431 60.9094</span>
-<span class="co">#&gt;  5         Akiak Alaska -161.214 60.9122</span>
-<span class="co">#&gt;  6        Akutan Alaska -165.778 54.1385</span>
-<span class="co">#&gt;  7      Alakanuk Alaska -164.615 62.6889</span>
-<span class="co">#&gt;  8        Alatna Alaska -152.760 66.5968</span>
-<span class="co">#&gt;  9     Aleknagik Alaska -158.618 59.2730</span>
-<span class="co">#&gt; 10 Aleut Village Alaska -152.761 58.0171</span>
+<span class="co">#&gt;    Location      Group    lon   lat</span>
+<span class="co">#&gt;    &lt;chr&gt;         &lt;fctr&gt; &lt;dbl&gt; &lt;dbl&gt;</span>
+<span class="co">#&gt;  1 Adak Station  Alaska  -177  51.9</span>
+<span class="co">#&gt;  2 Afognak       Alaska  -153  58.0</span>
+<span class="co">#&gt;  3 Akhiok        Alaska  -154  56.9</span>
+<span class="co">#&gt;  4 Akiachak      Alaska  -161  60.9</span>
+<span class="co">#&gt;  5 Akiak         Alaska  -161  60.9</span>
+<span class="co">#&gt;  6 Akutan        Alaska  -166  54.1</span>
+<span class="co">#&gt;  7 Alakanuk      Alaska  -165  62.7</span>
+<span class="co">#&gt;  8 Alatna        Alaska  -153  66.6</span>
+<span class="co">#&gt;  9 Aleknagik     Alaska  -159  59.3</span>
+<span class="co">#&gt; 10 Aleut Village Alaska  -153  58.0</span>
 <span class="co">#&gt; # ... with 3,904 more rows</span></code></pre></div>
 </div>
 <div id="metadata-helpers" class="section level2">
@@ -207,9 +207,9 @@ locs
 <span class="co">#&gt; [1] "United States"</span>
 <span class="kw"><a href="../reference/metadata.html">get_coords</a></span>(x)
 <span class="co">#&gt; # A tibble: 1 x 2</span>
-<span class="co">#&gt;        lon     lat</span>
-<span class="co">#&gt;      &lt;dbl&gt;   &lt;dbl&gt;</span>
-<span class="co">#&gt; 1 -147.716 64.8378</span></code></pre></div>
+<span class="co">#&gt;     lon   lat</span>
+<span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt;</span>
+<span class="co">#&gt; 1  -148  64.8</span></code></pre></div>
 <p>These calls also take vectors and <code>get_coords</code> with <code>keep_cols = TRUE</code> retains all columns of <code>locs</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"Fairbanks"</span>, <span class="st">"Calgary"</span>)
 <span class="kw"><a href="../reference/metadata.html">get_state</a></span>(x)
@@ -218,16 +218,16 @@ locs
 <span class="co">#&gt; [1] "United States" "Canada"</span>
 <span class="kw"><a href="../reference/metadata.html">get_coords</a></span>(x)
 <span class="co">#&gt; # A tibble: 2 x 2</span>
-<span class="co">#&gt;        lon     lat</span>
-<span class="co">#&gt;      &lt;dbl&gt;   &lt;dbl&gt;</span>
-<span class="co">#&gt; 1 -147.716 64.8378</span>
-<span class="co">#&gt; 2 -114.057 51.0458</span>
+<span class="co">#&gt;     lon   lat</span>
+<span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt;</span>
+<span class="co">#&gt; 1  -148  64.8</span>
+<span class="co">#&gt; 2  -114  51.0</span>
 <span class="kw"><a href="../reference/metadata.html">get_coords</a></span>(x, <span class="dt">keep_cols =</span> <span class="ot">TRUE</span>)
 <span class="co">#&gt; # A tibble: 2 x 4</span>
-<span class="co">#&gt;    Location   Group      lon     lat</span>
-<span class="co">#&gt;       &lt;chr&gt;  &lt;fctr&gt;    &lt;dbl&gt;   &lt;dbl&gt;</span>
-<span class="co">#&gt; 1 Fairbanks  Alaska -147.716 64.8378</span>
-<span class="co">#&gt; 2   Calgary Alberta -114.057 51.0458</span></code></pre></div>
+<span class="co">#&gt;   Location  Group     lon   lat</span>
+<span class="co">#&gt;   &lt;chr&gt;     &lt;fctr&gt;  &lt;dbl&gt; &lt;dbl&gt;</span>
+<span class="co">#&gt; 1 Fairbanks Alaska   -148  64.8</span>
+<span class="co">#&gt; 2 Calgary   Alberta  -114  51.0</span></code></pre></div>
 <p>Typically a user is interested in all communities, or all those in a particular province. Less commonly, a user may have a specific location name and query the table as demonstrated above. Not only must the name be exact, but the results returned may not be unique. These helper functions that take specific locations as input are only intended to provide rough convenience. For example, Galena is not unique.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"Galena"</span>)
 <span class="kw"><a href="../reference/metadata.html">get_state</a></span>(x)
@@ -236,16 +236,16 @@ locs
 <span class="co">#&gt; [1] "United States" "Canada"</span>
 <span class="kw"><a href="../reference/metadata.html">get_coords</a></span>(x)
 <span class="co">#&gt; # A tibble: 2 x 2</span>
-<span class="co">#&gt;        lon     lat</span>
-<span class="co">#&gt;      &lt;dbl&gt;   &lt;dbl&gt;</span>
-<span class="co">#&gt; 1 -156.927 64.7333</span>
-<span class="co">#&gt; 2 -117.867 50.6167</span>
+<span class="co">#&gt;     lon   lat</span>
+<span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt;</span>
+<span class="co">#&gt; 1  -157  64.7</span>
+<span class="co">#&gt; 2  -118  50.6</span>
 <span class="kw"><a href="../reference/metadata.html">get_coords</a></span>(x, <span class="dt">keep_cols =</span> <span class="ot">TRUE</span>)
 <span class="co">#&gt; # A tibble: 2 x 4</span>
-<span class="co">#&gt;   Location            Group      lon     lat</span>
-<span class="co">#&gt;      &lt;chr&gt;           &lt;fctr&gt;    &lt;dbl&gt;   &lt;dbl&gt;</span>
-<span class="co">#&gt; 1   Galena           Alaska -156.927 64.7333</span>
-<span class="co">#&gt; 2   Galena British Columbia -117.867 50.6167</span></code></pre></div>
+<span class="co">#&gt;   Location Group              lon   lat</span>
+<span class="co">#&gt;   &lt;chr&gt;    &lt;fctr&gt;           &lt;dbl&gt; &lt;dbl&gt;</span>
+<span class="co">#&gt; 1 Galena   Alaska            -157  64.7</span>
+<span class="co">#&gt; 2 Galena   British Columbia  -118  50.6</span></code></pre></div>
 <p>An additional <code>group</code> argument can be passed to any of these functions to protect against this possibility. <code>group</code> may be a vector.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">grp &lt;-<span class="st"> "Alaska"</span>
 <span class="kw"><a href="../reference/metadata.html">get_state</a></span>(x, <span class="dt">group =</span> grp)
@@ -254,14 +254,14 @@ locs
 <span class="co">#&gt; [1] "United States"</span>
 <span class="kw"><a href="../reference/metadata.html">get_coords</a></span>(x, grp)
 <span class="co">#&gt; # A tibble: 1 x 2</span>
-<span class="co">#&gt;        lon     lat</span>
-<span class="co">#&gt;      &lt;dbl&gt;   &lt;dbl&gt;</span>
-<span class="co">#&gt; 1 -156.927 64.7333</span>
+<span class="co">#&gt;     lon   lat</span>
+<span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt;</span>
+<span class="co">#&gt; 1  -157  64.7</span>
 <span class="kw"><a href="../reference/metadata.html">get_coords</a></span>(x, grp, <span class="dt">keep_cols =</span> <span class="ot">TRUE</span>)
 <span class="co">#&gt; # A tibble: 1 x 4</span>
-<span class="co">#&gt;   Location  Group      lon     lat</span>
-<span class="co">#&gt;      &lt;chr&gt; &lt;fctr&gt;    &lt;dbl&gt;   &lt;dbl&gt;</span>
-<span class="co">#&gt; 1   Galena Alaska -156.927 64.7333</span></code></pre></div>
+<span class="co">#&gt;   Location Group    lon   lat</span>
+<span class="co">#&gt;   &lt;chr&gt;    &lt;fctr&gt; &lt;dbl&gt; &lt;dbl&gt;</span>
+<span class="co">#&gt; 1 Galena   Alaska  -157  64.7</span></code></pre></div>
 </div>
 <div id="spatial-reprojection" class="section level2">
 <h2 class="hasAnchor">
