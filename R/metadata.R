@@ -28,6 +28,7 @@ get_state <- function(location, group){
   locs <- .prep_locs(group = group)
   idx <- which(locs$Location %in% location)
   .no_loc(location, idx)
+  idx <- idx[match(location, locs$Location[idx])]
   as.character(locs$Group[idx])
 }
 
@@ -51,7 +52,8 @@ get_coords <- function(location, group, keep_cols = FALSE){
   locs <- .prep_locs(group = group)
   idx <- which(locs$Location %in% location)
   .no_loc(location, idx)
-  x <- dplyr::filter(locs, .data[["Location"]] %in% location)
+  idx <- match(location, locs$Location[idx])
+  x <- dplyr::filter(locs, .data[["Location"]] %in% location) %>% dplyr::slice(idx)
   if(keep_cols) x else dplyr::select(x, .data[["lon"]], .data[["lat"]])
 }
 
