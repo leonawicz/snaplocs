@@ -1,3 +1,8 @@
+# snaplocs 0.2.3 (Release date: 2017-01-14)
+
+* Fixed bug where vector of multiple locations could possibly return state/province, country or coordinates in incorrect order with respect to vector.
+
+
 # snaplocs 0.2.2 (Release date: 2017-12-15)
 
 * Breaking changes: Changed `region` argument in metadata helper functions to `group`. Change `loc` and `region` columns names in `locs` data frame to `Location` and `Group`. These changes bring more consistency with packages like `snapclim` and `snapfire`.
